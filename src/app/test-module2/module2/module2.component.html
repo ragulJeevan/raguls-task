@@ -1,0 +1,72 @@
+<div class="container my-3">
+    <h2 class="bg-secondary text-center">REGISTER FORM</h2>
+    <div class="card">
+        <div class="card-body">
+           <form [formGroup]="RegisterForm" >
+            <!--names-->
+         <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="firstName">FIRST NAME</label>
+                    <input formControlName="firstName" type="text" id="firstName"  value=""   class="form-control" placeholder="your first name here">
+                    <div class="alert alert-danger" *ngIf="firstName  && firstName.invalid">NAME REQUIRED</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="lastName">LAST NAME</label>
+                    <input formControlName="lastName" type="text" id="lastName" name="lastName" class="form-control" placeholder="your last name here">
+                    <div class="alert alert-danger" *ngIf="lastName && lastName.invalid && lastName.touched">NAME REQUIRED</div>
+
+                </div>
+            </div>
+         </div>
+         <!--name and mail-->
+         <div class="row">        
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label  for="mobileNumber">MOBILE NUMBER</label>
+                    <input type="number" formControlName="mobileNumber" id="mobileNumber" name="mobileNumber" class="form-control" placeholder="9876543210">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="email">EMAIL</label>
+                    <input formControlName="email" type="mail" id="email" name="email" class="form-control" placeholder="mail@mail.com">
+                </div>
+            </div>
+         </div>
+         <!--password-->
+         <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="passcode">PASSWORD</label>
+                    <input formControlName="passcode" type="password" id="passcode" name="passcode" class="form-control">
+                </div>
+                <div class="alert alert-danger" *ngIf="password && password.invalid && password.touched">enter password</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="passcodec">CONFIRM PASSWORD</label>
+                    <input formControlName="passcodec" type="password" id="passcodec" name="passcodec" class="form-control">
+                </div>
+            </div>
+         </div>
+         <!--terms of conditon box-->
+         <div class="mb-3 text-center">
+            <input type="checkbox">I agree to terms and conditions
+         </div>
+         <!--buttons-->
+         <div class="mb-3 text-center">
+            <button (click)="register()" [disabled]="!RegisterForm.valid"  class="btn btn-success" type="submit">Register</button>
+            <span>&nbsp;</span>
+            <button (click)="resetForm()" class="btn btn-secondary" type="reset">Reset</button>
+           
+           </div>
+
+           
+           </form>
+        </div>
+    </div>
+
+</div>

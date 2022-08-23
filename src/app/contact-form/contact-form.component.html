@@ -1,0 +1,48 @@
+<div class="container my-3">
+    <div>
+        <h1 class="bg-secondary text-center">LOGIN FORM</h1>
+        <form #addcustomerForm="ngForm"(submit)="addcustomer(addcustomerForm)">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="mail" class="form-label">EMAIL</label>
+                            </div>         
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <input type="email" [(ngModel)]="mail" name="mail" class="form-control">
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addcustomerForm.invalid && addcustomerForm.touched">enter your email</div>
+                        </div>
+            
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="passcode" class="form-label">PASSWORD</label>
+                            </div>         
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <input type="password" [(ngModel)]="passcode" name="passcode" class="form-control" required minlength="8">    
+                            </div>
+                            <div class="alert alert-danger" *ngIf="!addcustomerForm.valid && addcustomerForm.touched">password should be minimum 8 characters</div>
+                        </div>
+            
+                    </div>
+                   <div class="mb-3 text-center">
+                    <input type="checkbox" name="terms" [(ngModel)]="terms" required> i agree terms and condition
+                   </div> 
+                   
+                   <div class="container text-center">
+                    <button class="btn btn-success " [disabled]="addcustomerForm.invalid" type="submit">LOGIN</button> 
+                    <button class="btn btn-danger " (click)="resetform(addcustomerForm)" type="reset">RESET</button>
+
+                   </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

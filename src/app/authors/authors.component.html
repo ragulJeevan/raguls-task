@@ -1,0 +1,16 @@
+<div *ngIf = "!isSuccess else success">ngif works on sucess true</div>
+<ng-template #success> ngif on success</ng-template>
+
+<hr>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <input  [(ngModel)]="username">
+<button (click)="view()" class="btn btn-primary">submit</button>
+
+        </div>
+    </div>
+</div>
+
+
+<div>{{dateExample|date}}</div>
