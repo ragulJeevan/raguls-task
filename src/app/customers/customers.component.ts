@@ -8,6 +8,8 @@ import { UsersService } from '../services/users.service';
 })
 export class CustomersComponent implements OnInit {
   users!: any;
+  mail:any=''
+  passcode:any=''
 
   constructor(private usersService:UsersService) { }
 
